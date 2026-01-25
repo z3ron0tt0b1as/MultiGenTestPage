@@ -1,4 +1,4 @@
-# Page: /app/auth/login/page.tsx
+# Login Page
 
 This is the login page for user authentication.
 

@@ -1,4 +1,4 @@
-# Component: Tabs
+# Tabs Component
 
 Tab navigation component for switching between views.
 

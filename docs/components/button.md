@@ -1,4 +1,4 @@
-# Component: Button
+# Button Component
 
 Reusable button component for UI actions.
 

@@ -1,4 +1,4 @@
-# Component: Label
+# Label Component
 
 Label component for form fields.
 

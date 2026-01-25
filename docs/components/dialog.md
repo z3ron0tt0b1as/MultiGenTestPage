@@ -1,4 +1,4 @@
-# Component: Dialog
+# Dialog Component
 
 Modal dialog component for displaying overlays and popups.
 

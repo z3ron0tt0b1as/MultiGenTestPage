@@ -1,4 +1,4 @@
-# Component: Input
+# Input Component
 
 Reusable input field component for forms.
 

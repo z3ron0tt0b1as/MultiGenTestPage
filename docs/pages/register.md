@@ -1,4 +1,4 @@
-# Page: /app/auth/register/page.tsx
+# Register Page
 
 This is the registration page for new users to create an account.
 

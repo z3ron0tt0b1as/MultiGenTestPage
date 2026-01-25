@@ -1,4 +1,4 @@
-# Component: ScrollArea
+# ScrollArea Component
 
 Scrollable area component for containing overflow content.
 

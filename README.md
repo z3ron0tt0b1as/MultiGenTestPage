@@ -1,3 +1,27 @@
+# MultiGenTestPage
+
+A modern web platform for AI-powered Roblox game development, featuring a custom web-based IDE, authentication, and template management.
+
+## Features
+- Next.js 15 (App Router, TypeScript)
+- Tailwind CSS for styling
+- Prisma ORM with MySQL
+- JWT-based authentication
+- REST API for user and project management
+- Template library for Roblox Lua
+
+## Documentation Structure
+- **docs/pages/**: Documentation for each app page (main, dashboard, login, register)
+- **docs/components/**: Documentation for each UI component (button, dialog, input, etc.)
+- **docs/database/**: Database schema and seeding instructions
+- **docs/setup/**: Project setup and environment configuration
+- **docs/requirements/**: System and software requirements
+
+## Quickstart
+See docs/setup/project-setup.md for full setup instructions.
+
+## License
+MIT
 <<<<<<< HEAD
 # MultiGenTestPage
 

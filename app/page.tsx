@@ -224,36 +224,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="relative z-10 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="relative rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.03] to-transparent p-8 backdrop-blur-sm">
-            <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-transparent to-cyan-500/5 rounded-3xl" />
-            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { value: "2.4M+", label: "Accounts Generated", icon: Users, color: "text-violet-400" },
-                { value: "99.9%", label: "Success Rate", icon: Check, color: "text-emerald-400" },
-                { value: "<5s", label: "Avg. Generation Time", icon: Zap, color: "text-yellow-400" },
-                { value: "70+", label: "Premium Features", icon: Crown, color: "text-pink-400" },
-                { value: "24/7", label: "Uptime", icon: Globe, color: "text-cyan-400" },
-                { value: "100+", label: "Countries Supported", icon: Globe, color: "text-fuchsia-400" },
-              ].map((stat, i) => (
-                <div key={i} className="text-center group relative">
-                  {i < 3 && <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/10 to-transparent" />}
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <div className={"w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform"}>
-                      <stat.icon className={`w-5 h-5 ${stat.color}`} />
-                    </div>
-                  <p className="text-3xl sm:text-4xl font-black text-white">{stat.value}</p>
-                  </div>
-                  <p className="text-sm text-white/40">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section id="generator" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a]/80 via-black/60 to-black/90">
         <div className="max-w-7xl mx-auto px-6">
@@ -305,6 +275,36 @@ export default function Home() {
               <Lock className="w-12 h-12 text-fuchsia-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Secure & Private</h3>
               <p className="text-white/60 text-base">Your data is encrypted and never shared with third parties.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="relative z-10 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="relative rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.03] to-transparent p-8 backdrop-blur-sm">
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-transparent to-cyan-500/5 rounded-3xl" />
+            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { value: "2.4M+", label: "Accounts Generated", icon: Users, color: "text-violet-400" },
+                { value: "99.9%", label: "Success Rate", icon: Check, color: "text-emerald-400" },
+                { value: "<5s", label: "Avg. Generation Time", icon: Zap, color: "text-yellow-400" },
+                { value: "70+", label: "Premium Features", icon: Crown, color: "text-pink-400" },
+                { value: "24/7", label: "Uptime", icon: Globe, color: "text-cyan-400" },
+                { value: "100+", label: "Countries Supported", icon: Globe, color: "text-fuchsia-400" },
+              ].map((stat, i) => (
+                <div key={i} className="text-center group relative">
+                  {i < 3 && <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/10 to-transparent" />}
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <div className={"w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform"}>
+                      <stat.icon className={`w-5 h-5 ${stat.color}`} />
+                    </div>
+                  <p className="text-3xl sm:text-4xl font-black text-white">{stat.value}</p>
+                  </div>
+                  <p className="text-sm text-white/40">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -487,214 +487,281 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Discord CTA */}
-      <section id="discord" className="relative z-10 py-32">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#5865F2]/30 bg-gradient-to-br from-[#23272A]/80 via-[#5865F2]/20 to-[#23272A]/80">
-            {/* Animated Discord background */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute -top-10 -left-10 w-60 h-60 bg-[#5865F2]/30 rounded-full blur-3xl animate-pulse" />
-              <div className="absolute bottom-0 right-0 w-72 h-72 bg-fuchsia-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
-              <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s", transform: "translate(-50%, -50%)" }} />
-            </div>
-            <div className="relative px-8 py-16 sm:px-20 sm:py-20 flex flex-col items-center text-center gap-4">
-              {/* Discord SVG logo */}
-              <div className="w-24 h-24 rounded-full bg-[#5865F2] flex items-center justify-center mb-6 shadow-2xl shadow-[#5865F2]/40 border-4 border-white/10 animate-bounce">
-                <svg width="56" height="56" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M60.104 4.552A58.6 58.6 0 0 0 46.852.8a.14.14 0 0 0-.15.07c-2.01 3.58-4.25 8.25-5.83 12.01-7.01-1.05-13.85-1.05-20.77 0-1.59-3.77-3.86-8.43-5.84-12.01a.13.13 0 0 0-.15-.07A58.6 58.6 0 0 0 .896 4.552a.12.12 0 0 0-.06.05C-3.12 11.09-5.32 17.44-6.62 23.72a.13.13 0 0 0 .05.13c8.47 6.19 16.7 9.97 24.77 12.44a.14.14 0 0 0 .15-.05c1.9-2.6 3.6-5.36 5.08-8.23a.13.13 0 0 0-.07-.18c-2.77-1.05-5.41-2.3-7.98-3.77a.13.13 0 0 1-.01-.22c.54-.41 1.08-.84 1.6-1.27a.13.13 0 0 1 .13-.02c16.7 7.65 34.8 7.65 51.36 0a.13.13 0 0 1 .14.02c.53.43 1.06.86 1.6 1.27a.13.13 0 0 1-.01.22c-2.57 1.47-5.21 2.72-7.98 3.77a.13.13 0 0 0-.07.18c1.48 2.87 3.18 5.63 5.08 8.23a.14.14 0 0 0 .15.05c8.08-2.47 16.31-6.25 24.77-12.44a.13.13 0 0 0 .05-.13c-1.3-6.28-3.5-12.63-7.62-19.12a.12.12 0 0 0-.06-.05ZM23.73 37.14c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Zm23.54 0c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Z" fill="#fff"/>
-                </svg>
-              </div>
-              <h2 className="text-4xl sm:text-5xl font-black text-white mb-2 drop-shadow-lg">
-                Join Our <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Discord</span>
-              </h2>
-              <h3 className="text-lg text-white/70 mb-2 font-medium">Be part of the MultiGen community!</h3>
-              <p className="text-base sm:text-lg text-white/60 mb-8 max-w-xl mx-auto">
-                Get support, share accounts, access exclusive giveaways, and connect with 15,000+ members.<br />
-                <span className="text-white/40">Our team is online 24/7 to help you with any questions or issues.</span>
-              </p>
-              <a href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-14 px-10 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold rounded-full shadow-xl shadow-[#5865F2]/30 transition-all duration-300 hover:scale-105 flex items-center gap-2 text-lg">
-                  <svg width="28" height="28" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2"><path d="M60.104 4.552A58.6 58.6 0 0 0 46.852.8a.14.14 0 0 0-.15.07c-2.01 3.58-4.25 8.25-5.83 12.01-7.01-1.05-13.85-1.05-20.77 0-1.59-3.77-3.86-8.43-5.84-12.01a.13.13 0 0 0-.15-.07A58.6 58.6 0 0 0 .896 4.552a.12.12 0 0 0-.06.05C-3.12 11.09-5.32 17.44-6.62 23.72a.13.13 0 0 0 .05.13c8.47 6.19 16.7 9.97 24.77 12.44a.14.14 0 0 0 .15-.05c1.9-2.6 3.6-5.36 5.08-8.23a.13.13 0 0 0-.07-.18c-2.77-1.05-5.41-2.3-7.98-3.77a.13.13 0 0 1-.01-.22c.54-.41 1.08-.84 1.6-1.27a.13.13 0 0 1 .13-.02c16.7 7.65 34.8 7.65 51.36 0a.13.13 0 0 1 .14.02c.53.43 1.06.86 1.6 1.27a.13.13 0 0 1-.01.22c-2.57 1.47-5.21 2.72-7.98 3.77a.13.13 0 0 0-.07.18c1.48 2.87 3.18 5.63 5.08 8.23a.14.14 0 0 0 .15.05c8.08-2.47 16.31-6.25 24.77-12.44a.13.13 0 0 0 .05-.13c-1.3-6.28-3.5-12.63-7.62-19.12a.12.12 0 0 0-.06-.05ZM23.73 37.14c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Zm23.54 0c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Z" fill="#fff"/></svg>
-                  Join Discord Server
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </a>
-              <p className="mt-6 text-sm text-white/40">15,000+ members and growing • Safe, friendly, and active</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our History Timeline Section */}
-      <section id="history" className="relative z-10 py-32 bg-black/30 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
-              Our <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">History</span>
+      {/* Testimonials Section */}
+      <section id="testimonials" className="relative z-10 py-32 bg-gradient-to-b from-black/80 via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-black text-white mb-6 tracking-tight">
+              What Our <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Users</span> Say
             </h2>
-            <p className="text-lg text-white/40 max-w-xl mx-auto">
-              Key milestones and growth of MultiGen.
+            <p className="text-xl text-white/50 max-w-2xl mx-auto">
+              Hear from our satisfied users who love MultiGen.
             </p>
           </div>
-          <div className="relative border-l-2 border-violet-500/30 pl-8">
-            {[
-              { year: 2026, title: "Major Redesign", desc: "Launched a new UI, added team, reviews, and contact features." },
-              { year: 2025, title: "Reached 2M+ Accounts", desc: "Surpassed 2 million accounts generated and 15,000 Discord members." },
-              { year: 2024, title: "Premium Plans", desc: "Introduced paid plans with Robux and custom features." },
-              { year: 2023, title: "MultiGen Launch", desc: "MultiGen was founded and launched to the public." },
-            ].map((item, i) => (
-              <div key={i} className="mb-12 flex items-start group">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold shadow-lg mr-6 border-4 border-black/40 group-hover:scale-110 transition-transform">{item.year}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Testimonial Card */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <p className="text-white/60 text-base mb-4">&quot;MultiGen has been a lifesaver for my gaming needs. Highly recommend!&quot;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                  <User className="w-6 h-6 text-white" />
+                </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-fuchsia-400 transition-colors">{item.title}</h3>
-                  <p className="text-white/60 text-base">{item.desc}</p>
+                  <h4 className="text-white font-bold">John Doe</h4>
+                  <span className="text-white/50 text-sm">Verified User</span>
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <p className="text-white/60 text-base mb-4">&quot;The premium features are worth every penny. Great service!&quot;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                  <User className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold">Jane Smith</h4>
+                  <span className="text-white/50 text-sm">Premium User</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <p className="text-white/60 text-base mb-4">&quot;Fast, reliable, and secure. MultiGen is the best!&quot;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                  <User className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold">Alex Johnson</h4>
+                  <span className="text-white/50 text-sm">Long-time User</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Our Team Section - Improved */}
-      <section id="team" className="relative z-10 py-32 bg-black/20 backdrop-blur-sm">
+      {/* Our Team Section */}
+      <section id="our-team" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
-              Meet <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Our Team</span>
+              Meet Our <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Team</span>
             </h2>
-            <p className="text-lg text-white/40 max-w-xl mx-auto">
-              The passionate creators behind MultiGen.
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              The passionate individuals behind MultiGen.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-            {[
-              { name: "Tobias (PrismaticTobias)", role: "Founder & Lead Dev", img: "https://randomuser.me/api/portraits/men/32.jpg", bio: "Full-stack dev, Roblox enthusiast, and product visionary.", twitter: "#", github: "#", secret: "Alex once generated 1000 alts in a single day." },
-              { name: "None", role: "None", img: "", bio: "Designs beautiful, user-friendly interfaces.", twitter: "#", github: "#", secret: "Jamie designed the MultiGen logo in 10 minutes." },
-              { name: "None", role: "None", img: "", bio: "Keeps the servers fast, secure, and reliable.", twitter: "#", github: "#", secret: "Taylor can code backend in their sleep." },
-              { name: "None", role: "None", img: "", bio: "Engages and supports our amazing user base.", twitter: "#", github: "#", secret: "Morgan has answered over 10,000 support tickets." },
-            ].map((member, i) => (
-              <div key={i} className={
-                `flex flex-col items-center text-center bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg group hover:scale-105 transition-transform ${spunIndex === i ? "animate-spin-slow" : ""}`
-              }>
-                <div className="relative">
-                  {member.img ? (
-                    <Image
-                      src={member.img}
-                      alt={member.name}
-                      width={96}
-                      height={96}
-                      className="w-24 h-24 rounded-full mb-4 border-4 border-violet-500/30 object-cover group-hover:border-fuchsia-400 transition-colors cursor-pointer"
-                      onClick={() => setSpunIndex(spunIndex === i ? null : i)}
-                      title="Click me for a secret!"
-                    />
-                  ) : (
-                    <div className="w-24 h-24 rounded-full mb-4 border-4 border-violet-500/30 bg-gray-700 flex items-center justify-center text-white/40 text-xl cursor-pointer" onClick={() => setSpunIndex(spunIndex === i ? null : i)} title="Click me for a secret!">
-                      No Image
-                    </div>
-                  )}
-                  {spunIndex === i && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-black/90 text-white text-xs rounded-lg px-4 py-2 shadow-xl z-10 border border-violet-500/40 animate-fade-in">
-                      <Smile className="inline w-4 h-4 mr-1 text-yellow-300" />{member.secret}
-                    </div>
-                  )}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                <p className="text-fuchsia-400 text-sm font-semibold mb-1">{member.role}</p>
-                <p className="text-white/50 text-sm mb-3">{member.bio}</p>
-                <div className="flex gap-3 justify-center">
-                  <a href={member.twitter} className="text-white/40 hover:text-cyan-400 transition-colors" aria-label="Twitter"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195A4.92 4.92 0 0 0 16.616 3c-2.73 0-4.942 2.21-4.942 4.932 0 .386.045.762.127 1.124C7.728 8.807 4.1 6.884 1.671 3.965c-.423.722-.666 1.561-.666 2.475 0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.237-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.057 0 14.009-7.496 14.009-13.986 0-.213-.005-.425-.014-.636A9.936 9.936 0 0 0 24 4.557z"/></svg></a>
-                  <a href={member.github} className="text-white/40 hover:text-violet-400 transition-colors" aria-label="GitHub"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .267.18.577.688.48C19.138 20.2 22 16.448 22 12.021 22 6.484 17.523 2 12 2z"/></svg></a>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Team Member Card */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl text-center">
+              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center mb-4">
+                <User className="w-12 h-12 text-white" />
               </div>
-            ))}
+              <h3 className="text-xl font-bold text-white mb-2">Alice Johnson</h3>
+              <p className="text-white/60 text-sm">CEO & Founder</p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl text-center">
+              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-4">
+                <User className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Bob Smith</h3>
+              <p className="text-white/60 text-sm">CTO</p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl text-center">
+              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center mb-4">
+                <User className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Charlie Davis</h3>
+              <p className="text-white/60 text-sm">Lead Developer</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Customer & User Reviews Section - Improved */}
-      <section id="reviews" className="relative z-10 py-32">
-        <div className="max-w-5xl mx-auto px-6">
+      {/* History Timeline Section */}
+      <section id="history" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              Our <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Journey</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              A timeline of our milestones and achievements.
+            </p>
+          </div>
+          <div className="space-y-8">
+            <div className="flex items-center gap-6">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                <Check className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white">2020</h3>
+                <p className="text-white/60 text-sm">MultiGen was founded with the vision to revolutionize account generation.</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                <Check className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white">2022</h3>
+                <p className="text-white/60 text-sm">Launched our premium plans with advanced features.</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                <Check className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white">2025</h3>
+                <p className="text-white/60 text-sm">Reached 2 million users worldwide.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer & User Reviews Section */}
+      <section id="reviews" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
               Customer <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Reviews</span>
             </h2>
-            <p className="text-lg text-white/40 max-w-xl mx-auto">
-              See what our users are saying about MultiGen.
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              See what our customers have to say about MultiGen.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "RobloxianPro",
-                review: "MultiGen is a game changer! I generated 10 alts in minutes. Super easy and safe.",
-                avatar: "https://randomuser.me/api/portraits/men/12.jpg",
-                rating: 5,
-                badge: "Verified User",
-                date: "Jan 2026",
-              },
-              {
-                name: "DevQueen",
-                review: "The premium plan is worth every penny. Robux included and instant delivery!",
-                avatar: "https://randomuser.me/api/portraits/women/22.jpg",
-                rating: 5,
-                badge: "Premium",
-                date: "Dec 2025",
-              },
-              {
-                name: "AltMaster",
-                review: "Support is fast and helpful. The accounts work perfectly for my projects.",
-                avatar: "https://randomuser.me/api/portraits/men/45.jpg",
-                rating: 4,
-                badge: "Creator",
-                date: "Nov 2025",
-              },
-            ].map((user, i) => (
-              <div key={i} className="bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg flex flex-col items-center text-center group hover:scale-105 transition-transform">
-                <Image src={user.avatar} alt={user.name} width={64} height={64} className="w-16 h-16 rounded-full mb-4 border-2 border-fuchsia-400 object-cover group-hover:border-violet-400 transition-colors" />
-                <div className="flex gap-1 mb-2">
-                  {[...Array(user.rating)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  ))}
-                  {[...Array(5 - user.rating)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 text-white/20" />
-                  ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <p className="text-white/60 text-base mb-4">&quot;MultiGen has been a lifesaver for my gaming needs. Highly recommend!&quot;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                  <User className="w-6 h-6 text-white" />
                 </div>
-                <span className="text-xs font-bold text-emerald-400 bg-emerald-900/30 px-2 py-0.5 rounded-full mb-2">{user.badge}</span>
-                <p className="text-white/80 text-base mb-2">&quot;{user.review}&quot;</p>
-                <span className="text-white/50 text-sm font-semibold">{user.name}</span>
-                <span className="text-white/30 text-xs mt-1">{user.date}</span>
+                <div>
+                  <h4 className="text-white font-bold">Emily Brown</h4>
+                  <span className="text-white/50 text-sm">Verified Customer</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <p className="text-white/60 text-base mb-4">&quot;The premium features are worth every penny. Great service!&quot;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                  <User className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold">Michael Green</h4>
+                  <span className="text-white/50 text-sm">Premium User</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <p className="text-white/60 text-base mb-4">&quot;Fast, reliable, and secure. MultiGen is the best!&quot;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                  <User className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold">Sophia Lee</h4>
+                  <span className="text-white/50 text-sm">Long-time User</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Us Section - Improved */}
-      <section id="contact" className="relative z-10 py-32 bg-black/20 backdrop-blur-sm">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-12">
+      {/* FAQ Section */}
+      <section id="faq" className="relative z-10 py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
-              Contact <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Us</span>
+              Frequently Asked <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Questions</span>
             </h2>
             <p className="text-lg text-white/40 max-w-xl mx-auto">
-              Have a question or need help? Fill out the form below and our team will get back to you soon.
+              Have questions? We’ve got answers.
             </p>
           </div>
-          <form className="bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <label htmlFor="name" className="text-white/70 text-sm font-medium flex items-center gap-2"><User className="w-4 h-4 text-violet-400" /> Name</label>
-              <input id="name" name="name" type="text" required className="h-12 px-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/30 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all" placeholder="Your name" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">Is MultiGen free to use?</h3>
+              <p className="text-sm text-white/60">Yes, MultiGen offers a free plan with basic features. Paid plans unlock premium features.</p>
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="email" className="text-white/70 text-sm font-medium flex items-center gap-2"><Mail className="w-4 h-4 text-violet-400" /> Email</label>
-              <input id="email" name="email" type="email" required className="h-12 px-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/30 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all" placeholder="you@example.com" />
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">How secure is MultiGen?</h3>
+              <p className="text-sm text-white/60">We use advanced encryption and privacy measures to ensure your data is safe.</p>
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-white/70 text-sm font-medium flex items-center gap-2"><MessageCircle className="w-4 h-4 text-violet-400" /> Message</label>
-              <textarea id="message" name="message" required rows={5} className="px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/30 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all resize-none" placeholder="How can we help you?" />
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">Can I cancel my subscription?</h3>
+              <p className="text-sm text-white/60">Yes, you can cancel your subscription anytime from your account dashboard.</p>
             </div>
-            <button type="submit" className="h-12 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition-all">Send Message</button>
-            <div className="text-green-400 text-center text-sm mt-2 hidden" id="contact-success">Thank you! Your message has been sent.</div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">What payment methods are accepted?</h3>
+              <p className="text-sm text-white/60">We accept all major credit cards, PayPal, and other secure payment methods.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section id="blog" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              Latest <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Articles</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              Stay updated with the latest news and insights from MultiGen.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Blog Card */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-4">How MultiGen Revolutionized Account Generation</h3>
+              <p className="text-white/60 text-sm mb-6">Discover the story behind MultiGen and how we became the leading platform for account generation.</p>
+              <a href="#" className="text-violet-400 hover:underline">Read More</a>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-4">Top 5 Features of MultiGen</h3>
+              <p className="text-white/60 text-sm mb-6">Explore the features that make MultiGen the best choice for gamers and developers.</p>
+              <a href="#" className="text-violet-400 hover:underline">Read More</a>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-4">Tips for Safe Account Generation</h3>
+              <p className="text-white/60 text-sm mb-6">Learn how to generate accounts securely and avoid common pitfalls.</p>
+              <a href="#" className="text-violet-400 hover:underline">Read More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Us Section */}
+      <section id="contact" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              Get in <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Touch</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              Have questions or feedback? We’d love to hear from you.
+            </p>
+          </div>
+          <form className="max-w-3xl mx-auto space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-white mb-2">Name</label>
+              <input type="text" id="name" className="w-full px-4 py-3 rounded-lg bg-white/10 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Your Name" />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-white mb-2">Email</label>
+              <input type="email" id="email" className="w-full px-4 py-3 rounded-lg bg-white/10 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Your Email" />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-white mb-2">Message</label>
+              <textarea id="message" rows={5} className="w-full px-4 py-3 rounded-lg bg-white/10 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-violet-500" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" className="w-full py-3 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-semibold hover:opacity-90 transition-all">Send Message</button>
           </form>
         </div>
       </section>
@@ -725,7 +792,7 @@ export default function Home() {
                   <PartyPopper className="w-7 h-7" />
                 </a>
                 <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-violet-400 transition-colors"><svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195A4.916 4.916 0 0 0 16.616 3c-2.72 0-4.924 2.206-4.924 4.924 0 .386.044.763.127 1.124C7.728 8.807 4.1 6.884 1.671 3.965c-.423.724-.666 1.562-.666 2.475 0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.868 9.868 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.212c9.057 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636A10.012 10.012 0 0 0 24 4.557z"/></svg></a>
-                <a href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noopener noreferrer" className="hover:text-violet-400 transition-colors"><svg width="26" height="26" fill="currentColor" viewBox="0 0 71 55"><path d="M60.104 4.552A58.6 58.6 0 0 0 46.852.8a.14.14 0 0 0-.15.07c-2.01 3.58-4.25 8.25-5.83 12.01-7.01-1.05-13.85-1.05-20.77 0-1.59-3.77-3.86-8.43-5.84-12.01a.13.13 0 0 0-.15-.07A58.6 58.6 0 0 0 .896 4.552a.12.12 0 0 0-.06.05C-3.12 11.09-5.32 17.44-6.62 23.72a.13.13 0 0 0 .05.13c8.47 6.19 16.7 9.97 24.77 12.44a.14.14 0 0 0 .15-.05c1.9-2.6 3.6-5.36 5.08-8.23a.13.13 0 0 0-.07-.18c-2.77-1.05-5.41-2.3-7.98-3.77a.13.13 0 0 1-.01-.22c.54-.41 1.08-.84 1.6-1.27a.13.13 0 0 1 .13-.02c16.7 7.65 34.8 7.65 51.36 0a.13.13 0 0 1 .14.02c.53.43 1.06.86 1.6 1.27a.13.13 0 0 1-.01.22c-2.57 1.47-5.21 2.72-7.98 3.77a.13.13 0 0 0-.07-.18c1.48 2.87 3.18 5.63 5.08 8.23a.14.14 0 0 0 .15.05c8.08-2.47 16.31-6.25 24.77-12.44a.13.13 0 0 0 .05-.13c-1.3-6.28-3.5-12.63-7.62-19.12a.12.12 0 0 0-.06-.05ZM23.73 37.14c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Zm23.54 0c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Z"/></svg></a>
+                <a href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noopener noreferrer" className="hover:text-violet-400 transition-colors"><svg width="26" height="26" fill="currentColor" viewBox="0 0 71 55"><path d="M60.104 4.552A58.6 58.6 0 0 0 46.852.8a.14.14 0 0 0-.15.07c-2.01 3.58-4.25 8.25-5.83 12.01-7.01-1.05-13.85-1.05-20.77 0-1.59-3.77-3.86-8.43-5.84-12.01a.13.13 0 0 0-.15-.07A58.6 58.6 0 0 0 .896 4.552a.12.12 0 0 0-.06.05C-3.12 11.09-5.32 17.44-6.62 23.72a.13.13 0 0 0 .05.13c8.47 6.19 16.7 9.97 24.77 12.44a.14.14 0 0 0 .15-.05c1.9-2.6 3.6-5.36 5.08-8.23a.13.13 0 0 0-.07-.18c-2.77-1.05-5.41-2.3-7.98-3.77a.13.13 0 0 1-.01-.22c.54-.41 1.08-.84 1.6-1.27a.13.13 0 0 1 .13-.02c16.7 7.65 34.8 7.65 51.36 0a.13.13 0 0 1 .14.02c.53.43 1.06.86 1.6 1.27a.13.13 0 0 1-.01.22c-2.57 1.47-5.21 2.72-7.98 3.77a.13.13 0 0 0-.07.18c1.48 2.87 3.18 5.63 5.08 8.23a.14.14 0 0 0 .15.05c8.08-2.47 16.31-6.25 24.77-12.44a.13.13 0 0 0 .05-.13c-1.3-6.28-3.5-12.63-7.62-19.12a.12.12 0 0 0-.06-.05ZM23.73 37.14c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Zm23.54 0c-2.36 0-4.29-2.16-4.29-4.81 0-2.65 1.91-4.81 4.29-4.81 2.39 0 4.31 2.18 4.29 4.81 0 2.65-1.91 4.81-4.29 4.81Z"/></svg></a>
                 <a href="mailto:support@multigen.com" className="hover:text-violet-400 transition-colors"><Mail className="w-8 h-8" /></a>
               </div>
             </div>
@@ -753,10 +820,10 @@ export default function Home() {
             <div className="flex-1 min-w-[200px]">
               <h4 className="font-bold text-lg mb-5 text-white/90 tracking-wide">Legal</h4>
               <ul className="space-y-3 text-white/70 text-base">
-                <li><a href="#" className="hover:text-violet-400 transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-violet-400 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-violet-400 transition-colors">Security</a></li>
-                <li><a href="#" className="hover:text-violet-400 transition-colors">DMCA</a></li>
+                <li><a href="/legal/terms-of-service" className="hover:text-violet-400 transition-colors">Terms of Service</a></li>
+                <li><a href="/policies/privacy-policy" className="hover:text-violet-400 transition-colors">Privacy Policy</a></li>
+                <li><a href="/legal/security" className="hover:text-violet-400 transition-colors">Security</a></li>
+                <li><a href="/legal/dmca" className="hover:text-violet-400 transition-colors">DMCA</a></li>
               </ul>
             </div>
             {/* Newsletter Signup */}

@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   try {
-    const headersList = headers();
+    const headersList = await headers();
     const authorization = headersList.get("authorization");
 
     if (!authorization) {

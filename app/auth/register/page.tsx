@@ -132,7 +132,7 @@ export default function RegisterPage() {
                 {error && (
                   <div className="flex items-center gap-3 p-4 text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-2xl">
                     <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                    {error}
+                       {error && error.replace(/'/g, '&apos;').replace(/"/g, '&quot;')}
                   </div>
                 )}
 

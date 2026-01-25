@@ -5,6 +5,13 @@ import { hashPassword, createToken } from "@/lib/auth";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+    // Check if registration is enabled
+    if (process.env.REGRISTRATION_ENABLED === "false") {
+      return NextResponse.json(
+        { error: "Registration is currently disabled. Please contact our Support Team." },
+        { status: 403 }
+      );
+    }
   try {
     const { email, password, name } = await request.json();
 

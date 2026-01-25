@@ -5,6 +5,13 @@ import { verifyPassword, createToken } from "@/lib/auth";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+    // Check if login is enabled
+    if (process.env.LOGIN_ENABLED === "false") {
+      return NextResponse.json(
+        { error: "Login is currently disabled. Please contact our Support Team." },
+        { status: 403 }
+      );
+    }
   try {
     const { email, password } = await request.json();
 

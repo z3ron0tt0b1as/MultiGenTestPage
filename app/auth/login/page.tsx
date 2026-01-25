@@ -31,8 +31,25 @@ export default function LoginPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        // Custom DB error message
-        if (
+        // User-friendly messages for common HTTP errors
+        const statusMessages: Record<number, string> = {
+          400: "Bad request. Please check your input and try again.",
+          401: "Unauthorized. Please check your credentials or verify your email.",
+          403: "Login is currently disabled. Please contact our Support Team.",
+          408: "Request timed out. Please try again.",
+          502: "Bad gateway. Please try again later.",
+          503: "Service unavailable. Please try again later.",
+          504: "Server timeout. Please try again later.",
+          509: "Bandwidth limit exceeded. Please try again later or contact support.",
+        };
+        if (statusMessages[res.status]) {
+          setError(statusMessages[res.status]);
+        } else if (
+          data.error === "Login is currently disabled. Please contact our Support Team." ||
+          data.error === "Login may be disabled. This may be due to a Database Connection Issue. Please contact our Support Team."
+        ) {
+          setError(data.error);
+        } else if (
           data.error === "Internal server error" ||
           (typeof data.error === "string" && data.error.toLowerCase().includes("database"))
         ) {

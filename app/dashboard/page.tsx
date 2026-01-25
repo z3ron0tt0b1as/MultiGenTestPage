@@ -1,16 +1,16 @@
 // Dashboard page for Roblox Alt Generator
 // Copied and adapted from the latest projects/page.tsx
 
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Plus, Trash2, Search, Clock, Star, 
   Code, Sparkles, Gamepad2, Settings, LogOut, User,
@@ -19,7 +19,7 @@ import {
   Globe, Shield, Boxes, Activity, TrendingUp, 
   Copy, Layers, Cpu, Terminal, Moon, Sun, Volume2, VolumeX, Key, Mail, Palette, Monitor, Check, X,
   Crown, Edit, BarChart3, Bot, Folder, PanelLeft
-} from 'lucide-react'
+} from "lucide-react";
 
 // ...existing code from AltGenDashboard (see previous read)
 // For brevity, the full code is not repeated here, but will be identical to the latest AltGenDashboard export
@@ -117,7 +117,7 @@ function StatCard({ label, value, icon }: { label: string; value: string; icon: 
 function NavLink({ label, active }: { label: string; active?: boolean }) {
   return (
     <button
-      className={`text-lg font-medium px-3 py-1 rounded transition-colors ${active ? 'text-white' : 'text-gray-400 hover:text-white hover:bg-[#18182a]'}`}
+      className={`text-lg font-medium px-3 py-1 rounded transition-colors ${active ? "text-white" : "text-gray-400 hover:text-white hover:bg-[#18182a]"}`}
     >
       {label}
     </button>
@@ -127,13 +127,13 @@ function NavLink({ label, active }: { label: string; active?: boolean }) {
 // Account type option component
 function AccountTypeOption({ label, desc, badge, color, checked }: { label: string; desc: string; badge: string; color: string; checked?: boolean }) {
   return (
-    <label className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${checked ? 'border-emerald-500 bg-[#23233a]' : 'border-[#23233a] bg-[#18182a] hover:border-emerald-700'}`}>
+    <label className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${checked ? "border-emerald-500 bg-[#23233a]" : "border-[#23233a] bg-[#18182a] hover:border-emerald-700"}`}>
       <input type="radio" name="accountType" className="accent-emerald-500" defaultChecked={checked} />
       <div className="flex-1">
         <div className="font-semibold">{label}</div>
         <div className="text-xs text-gray-400">{desc}</div>
       </div>
-      <span className={`text-xs px-2 py-1 rounded ${color === 'emerald' ? 'bg-emerald-700 text-white' : color === 'blue' ? 'bg-blue-700 text-white' : 'bg-yellow-600 text-white'}`}>{badge}</span>
+      <span className={`text-xs px-2 py-1 rounded ${color === "emerald" ? "bg-emerald-700 text-white" : color === "blue" ? "bg-blue-700 text-white" : "bg-yellow-600 text-white"}`}>{badge}</span>
     </label>
   );
 }
@@ -143,7 +143,7 @@ function SidebarLink({ icon, label, active }: { icon: React.ReactNode; label: st
   return (
     <button
       className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${
-        active ? 'bg-[#23233a] text-white' : 'text-gray-400 hover:bg-[#18182a] hover:text-white'
+        active ? "bg-[#23233a] text-white" : "text-gray-400 hover:bg-[#18182a] hover:text-white"
       }`}
     >
       {icon}

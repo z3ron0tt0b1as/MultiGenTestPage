@@ -1,13 +1,14 @@
 "use client";
-import React from 'react';
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import Image from "next/image";
+import React from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { 
   Sparkles, ArrowRight, Star, Shield, Check, Users, Zap,
   Gamepad2, Crown, Gift, Timer, Infinity, Globe, Lock, Bot,
   Rocket, ChevronRight, Play, Download, MessageCircle, Code,
   Cpu, Terminal, Layers, Eye, TrendingUp, User, Mail, Smile, PartyPopper
-} from 'lucide-react'
+} from "lucide-react";
 
 export default function Home() {
   // Easter egg state
@@ -30,8 +31,8 @@ export default function Home() {
         pos = 0;
       }
     };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
   }, []);
 
   // Confetti animation (simple emoji burst)
@@ -49,19 +50,19 @@ export default function Home() {
         {/* Primary violet aurora */}
         <div className="absolute top-[-40%] left-[-10%] w-[1000px] h-[800px] bg-violet-600/30 rounded-full blur-[200px] animate-pulse" />
         {/* Cyan accent */}
-        <div className="absolute top-[-20%] right-[-5%] w-[700px] h-[600px] bg-cyan-500/25 rounded-full blur-[180px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-[-20%] right-[-5%] w-[700px] h-[600px] bg-cyan-500/25 rounded-full blur-[180px] animate-pulse" style={{ animationDelay: "1s" }} />
         {/* Pink/magenta glow */}
-        <div className="absolute top-[5%] left-[25%] w-[500px] h-[500px] bg-pink-500/30 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-[5%] left-[25%] w-[500px] h-[500px] bg-pink-500/30 rounded-full blur-[160px] animate-pulse" style={{ animationDelay: "2s" }} />
         {/* Deep purple accent */}
-        <div className="absolute top-[40%] right-[10%] w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[140px] animate-pulse" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-[40%] right-[10%] w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[140px] animate-pulse" style={{ animationDelay: "3s" }} />
         {/* Fuchsia bottom glow */}
-        <div className="absolute bottom-[-20%] left-[20%] w-[600px] h-[500px] bg-fuchsia-500/20 rounded-full blur-[180px] animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute bottom-[-20%] left-[20%] w-[600px] h-[500px] bg-fuchsia-500/20 rounded-full blur-[180px] animate-pulse" style={{ animationDelay: "1.5s" }} />
         {/* Animated grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
         {/* Radial fade */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,#0a0a0a_70%)]" />
         {/* Noise texture overlay */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E")' }} />
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noise\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"4\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noise)\"/%3E%3C/svg%3E\")" }} />
       </div>
 
       {/* Navigation */}
@@ -105,10 +106,10 @@ export default function Home() {
       <section className="relative z-10 pt-20 pb-32 sm:pt-28 sm:pb-40">
         {/* Floating elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-32 left-[10%] w-2 h-2 bg-violet-400 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
-          <div className="absolute top-48 right-[15%] w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping" style={{ animationDuration: '2.5s', animationDelay: '1s' }} />
-          <div className="absolute top-64 left-[20%] w-1 h-1 bg-pink-400 rounded-full animate-ping" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
-          <div className="absolute top-40 right-[25%] w-1.5 h-1.5 bg-fuchsia-400 rounded-full animate-ping" style={{ animationDuration: '3.5s', animationDelay: '2s' }} />
+          <div className="absolute top-32 left-[10%] w-2 h-2 bg-violet-400 rounded-full animate-ping" style={{ animationDuration: "3s" }} />
+          <div className="absolute top-48 right-[15%] w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping" style={{ animationDuration: "2.5s", animationDelay: "1s" }} />
+          <div className="absolute top-64 left-[20%] w-1 h-1 bg-pink-400 rounded-full animate-ping" style={{ animationDuration: "4s", animationDelay: "0.5s" }} />
+          <div className="absolute top-40 right-[25%] w-1.5 h-1.5 bg-fuchsia-400 rounded-full animate-ping" style={{ animationDuration: "3.5s", animationDelay: "2s" }} />
         </div>
 
         <div className="max-w-7xl mx-auto px-6">
@@ -230,17 +231,17 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-transparent to-cyan-500/5 rounded-3xl" />
             <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { value: '2.4M+', label: 'Accounts Generated', icon: Users, color: 'text-violet-400' },
-                { value: '99.9%', label: 'Success Rate', icon: Check, color: 'text-emerald-400' },
-                { value: '<5s', label: 'Avg. Generation Time', icon: Zap, color: 'text-yellow-400' },
-                { value: '70+', label: 'Premium Features', icon: Crown, color: 'text-pink-400' },
-                { value: '24/7', label: 'Uptime', icon: Globe, color: 'text-cyan-400' },
-                { value: '100+', label: 'Countries Supported', icon: Globe, color: 'text-fuchsia-400' },
+                { value: "2.4M+", label: "Accounts Generated", icon: Users, color: "text-violet-400" },
+                { value: "99.9%", label: "Success Rate", icon: Check, color: "text-emerald-400" },
+                { value: "<5s", label: "Avg. Generation Time", icon: Zap, color: "text-yellow-400" },
+                { value: "70+", label: "Premium Features", icon: Crown, color: "text-pink-400" },
+                { value: "24/7", label: "Uptime", icon: Globe, color: "text-cyan-400" },
+                { value: "100+", label: "Countries Supported", icon: Globe, color: "text-fuchsia-400" },
               ].map((stat, i) => (
                 <div key={i} className="text-center group relative">
                   {i < 3 && <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/10 to-transparent" />}
                   <div className="flex items-center justify-center gap-3 mb-2">
-                    <div className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <div className={"w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform"}>
                       <stat.icon className={`w-5 h-5 ${stat.color}`} />
                     </div>
                   <p className="text-3xl sm:text-4xl font-black text-white">{stat.value}</p>
@@ -333,30 +334,30 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                step: '01',
-                title: 'Create Account',
-                description: 'Sign up for free and access the generator dashboard. No payment required to start.',
+                step: "01",
+                title: "Create Account",
+                description: "Sign up for free and access the generator dashboard. No payment required to start.",
                 icon: Users,
-                color: 'from-violet-500 to-purple-500',
+                color: "from-violet-500 to-purple-500",
               },
               {
-                step: '02',
-                title: 'Choose Options',
-                description: 'Select account features, Robux amount (paid plans), avatar style, and privacy settings.',
+                step: "02",
+                title: "Choose Options",
+                description: "Select account features, Robux amount (paid plans), avatar style, and privacy settings.",
                 icon: Gamepad2,
-                color: 'from-fuchsia-500 to-pink-500',
+                color: "from-fuchsia-500 to-pink-500",
               },
               {
-                step: '03',
-                title: 'Generate & Use',
-                description: 'Click generate and receive your account credentials instantly. Use on any device, anywhere.',
+                step: "03",
+                title: "Generate & Use",
+                description: "Click generate and receive your account credentials instantly. Use on any device, anywhere.",
                 icon: Rocket,
-                color: 'from-cyan-500 to-blue-500',
+                color: "from-cyan-500 to-blue-500",
               },
             ].map((item, i) => (
               <div key={i} className="relative text-center group">
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`} />
-                <div className="text-8xl font-black bg-gradient-to-br from-white/[0.03] to-transparent bg-clip-text text-transparent mb-4 group-hover:from-violet-500/20 transition-all duration-500" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.05)' }}>
+                <div className="text-8xl font-black bg-gradient-to-br from-white/[0.03] to-transparent bg-clip-text text-transparent mb-4 group-hover:from-violet-500/20 transition-all duration-500" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.05)" }}>
                   {item.step}
                 </div>
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300`}>
@@ -407,7 +408,7 @@ export default function Home() {
                   <span className="text-white/40">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
-                  {['5 accounts/day', 'Basic features', 'Standard support', 'No Robux included'].map((item, i) => (
+                  {["5 accounts/day", "Basic features", "Standard support", "No Robux included"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-white/60">
                       <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                         <Check className="w-3 h-3 text-white/60" />
@@ -439,7 +440,7 @@ export default function Home() {
                   <span className="text-white/40">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
-                  {['100 accounts/day', 'Premium features', 'Priority support', '100 Robux per account', 'Custom usernames'].map((item, i) => (
+                  {["100 accounts/day", "Premium features", "Priority support", "100 Robux per account", "Custom usernames"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-white/80">
                       <div className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center flex-shrink-0">
                         <Check className="w-3 h-3 text-white" />
@@ -468,7 +469,7 @@ export default function Home() {
                   <span className="text-white/40">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
-                  {['Unlimited accounts', 'All premium features', '24/7 VIP support', '500 Robux per account', 'API access', 'Custom integrations'].map((item, i) => (
+                  {["Unlimited accounts", "All premium features", "24/7 VIP support", "500 Robux per account", "API access", "Custom integrations"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-white/60">
                       <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
                         <Check className="w-3 h-3 text-cyan-400" />
@@ -493,8 +494,8 @@ export default function Home() {
             {/* Animated Discord background */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute -top-10 -left-10 w-60 h-60 bg-[#5865F2]/30 rounded-full blur-3xl animate-pulse" />
-              <div className="absolute bottom-0 right-0 w-72 h-72 bg-fuchsia-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-              <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s', transform: 'translate(-50%, -50%)' }} />
+              <div className="absolute bottom-0 right-0 w-72 h-72 bg-fuchsia-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+              <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s", transform: "translate(-50%, -50%)" }} />
             </div>
             <div className="relative px-8 py-16 sm:px-20 sm:py-20 flex flex-col items-center text-center gap-4">
               {/* Discord SVG logo */}
@@ -537,10 +538,10 @@ export default function Home() {
           </div>
           <div className="relative border-l-2 border-violet-500/30 pl-8">
             {[
-              { year: 2026, title: 'Major Redesign', desc: 'Launched a new UI, added team, reviews, and contact features.' },
-              { year: 2025, title: 'Reached 2M+ Accounts', desc: 'Surpassed 2 million accounts generated and 15,000 Discord members.' },
-              { year: 2024, title: 'Premium Plans', desc: 'Introduced paid plans with Robux and custom features.' },
-              { year: 2023, title: 'MultiGen Launch', desc: 'MultiGen was founded and launched to the public.' },
+              { year: 2026, title: "Major Redesign", desc: "Launched a new UI, added team, reviews, and contact features." },
+              { year: 2025, title: "Reached 2M+ Accounts", desc: "Surpassed 2 million accounts generated and 15,000 Discord members." },
+              { year: 2024, title: "Premium Plans", desc: "Introduced paid plans with Robux and custom features." },
+              { year: 2023, title: "MultiGen Launch", desc: "MultiGen was founded and launched to the public." },
             ].map((item, i) => (
               <div key={i} className="mb-12 flex items-start group">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold shadow-lg mr-6 border-4 border-black/40 group-hover:scale-110 transition-transform">{item.year}</div>
@@ -567,22 +568,30 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
             {[
-              { name: 'Tobias (PrismaticTobias)', role: 'Founder & Lead Dev', img: 'https://randomuser.me/api/portraits/men/32.jpg', bio: 'Full-stack dev, Roblox enthusiast, and product visionary.', twitter: '#', github: '#', secret: 'Alex once generated 1000 alts in a single day.' },
-              { name: 'None', role: 'None', img: '', bio: 'Designs beautiful, user-friendly interfaces.', twitter: '#', github: '#', secret: 'Jamie designed the MultiGen logo in 10 minutes.' },
-              { name: 'None', role: 'None', img: '', bio: 'Keeps the servers fast, secure, and reliable.', twitter: '#', github: '#', secret: 'Taylor can code backend in their sleep.' },
-              { name: 'None', role: 'None', img: '', bio: 'Engages and supports our amazing user base.', twitter: '#', github: '#', secret: 'Morgan has answered over 10,000 support tickets.' },
+              { name: "Tobias (PrismaticTobias)", role: "Founder & Lead Dev", img: "https://randomuser.me/api/portraits/men/32.jpg", bio: "Full-stack dev, Roblox enthusiast, and product visionary.", twitter: "#", github: "#", secret: "Alex once generated 1000 alts in a single day." },
+              { name: "None", role: "None", img: "", bio: "Designs beautiful, user-friendly interfaces.", twitter: "#", github: "#", secret: "Jamie designed the MultiGen logo in 10 minutes." },
+              { name: "None", role: "None", img: "", bio: "Keeps the servers fast, secure, and reliable.", twitter: "#", github: "#", secret: "Taylor can code backend in their sleep." },
+              { name: "None", role: "None", img: "", bio: "Engages and supports our amazing user base.", twitter: "#", github: "#", secret: "Morgan has answered over 10,000 support tickets." },
             ].map((member, i) => (
               <div key={i} className={
-                `flex flex-col items-center text-center bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg group hover:scale-105 transition-transform ${spunIndex === i ? 'animate-spin-slow' : ''}`
+                `flex flex-col items-center text-center bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg group hover:scale-105 transition-transform ${spunIndex === i ? "animate-spin-slow" : ""}`
               }>
                 <div className="relative">
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full mb-4 border-4 border-violet-500/30 object-cover group-hover:border-fuchsia-400 transition-colors cursor-pointer"
-                    onClick={() => setSpunIndex(spunIndex === i ? null : i)}
-                    title="Click me for a secret!"
-                  />
+                  {member.img ? (
+                    <Image
+                      src={member.img}
+                      alt={member.name}
+                      width={96}
+                      height={96}
+                      className="w-24 h-24 rounded-full mb-4 border-4 border-violet-500/30 object-cover group-hover:border-fuchsia-400 transition-colors cursor-pointer"
+                      onClick={() => setSpunIndex(spunIndex === i ? null : i)}
+                      title="Click me for a secret!"
+                    />
+                  ) : (
+                    <div className="w-24 h-24 rounded-full mb-4 border-4 border-violet-500/30 bg-gray-700 flex items-center justify-center text-white/40 text-xl cursor-pointer" onClick={() => setSpunIndex(spunIndex === i ? null : i)} title="Click me for a secret!">
+                      No Image
+                    </div>
+                  )}
                   {spunIndex === i && (
                     <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-black/90 text-white text-xs rounded-lg px-4 py-2 shadow-xl z-10 border border-violet-500/40 animate-fade-in">
                       <Smile className="inline w-4 h-4 mr-1 text-yellow-300" />{member.secret}
@@ -616,32 +625,32 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: 'RobloxianPro',
-                review: 'MultiGen is a game changer! I generated 10 alts in minutes. Super easy and safe.',
-                avatar: 'https://randomuser.me/api/portraits/men/12.jpg',
+                name: "RobloxianPro",
+                review: "MultiGen is a game changer! I generated 10 alts in minutes. Super easy and safe.",
+                avatar: "https://randomuser.me/api/portraits/men/12.jpg",
                 rating: 5,
-                badge: 'Verified User',
-                date: 'Jan 2026',
+                badge: "Verified User",
+                date: "Jan 2026",
               },
               {
-                name: 'DevQueen',
-                review: 'The premium plan is worth every penny. Robux included and instant delivery!',
-                avatar: 'https://randomuser.me/api/portraits/women/22.jpg',
+                name: "DevQueen",
+                review: "The premium plan is worth every penny. Robux included and instant delivery!",
+                avatar: "https://randomuser.me/api/portraits/women/22.jpg",
                 rating: 5,
-                badge: 'Premium',
-                date: 'Dec 2025',
+                badge: "Premium",
+                date: "Dec 2025",
               },
               {
-                name: 'AltMaster',
-                review: 'Support is fast and helpful. The accounts work perfectly for my projects.',
-                avatar: 'https://randomuser.me/api/portraits/men/45.jpg',
+                name: "AltMaster",
+                review: "Support is fast and helpful. The accounts work perfectly for my projects.",
+                avatar: "https://randomuser.me/api/portraits/men/45.jpg",
                 rating: 4,
-                badge: 'Creator',
-                date: 'Nov 2025',
+                badge: "Creator",
+                date: "Nov 2025",
               },
             ].map((user, i) => (
               <div key={i} className="bg-white/5 rounded-2xl p-8 border border-white/10 shadow-lg flex flex-col items-center text-center group hover:scale-105 transition-transform">
-                <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-full mb-4 border-2 border-fuchsia-400 object-cover group-hover:border-violet-400 transition-colors" />
+                <Image src={user.avatar} alt={user.name} width={64} height={64} className="w-16 h-16 rounded-full mb-4 border-2 border-fuchsia-400 object-cover group-hover:border-violet-400 transition-colors" />
                 <div className="flex gap-1 mb-2">
                   {[...Array(user.rating)].map((_, j) => (
                     <Star key={j} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
@@ -651,7 +660,7 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="text-xs font-bold text-emerald-400 bg-emerald-900/30 px-2 py-0.5 rounded-full mb-2">{user.badge}</span>
-                <p className="text-white/80 text-base mb-2">"{user.review}"</p>
+                <p className="text-white/80 text-base mb-2">&quot;{user.review}&quot;</p>
                 <span className="text-white/50 text-sm font-semibold">{user.name}</span>
                 <span className="text-white/30 text-xs mt-1">{user.date}</span>
               </div>
@@ -708,7 +717,7 @@ export default function Home() {
                 <a
                   href="#"
                   className="hover:text-violet-400 transition-colors relative"
-                  style={{ opacity: 0.2, position: 'absolute', left: '-2.5rem', top: '0.5rem' }}
+                  style={{ opacity: 0.2, position: "absolute", left: "-2.5rem", top: "0.5rem" }}
                   tabIndex={-1}
                   aria-label="Easter Egg"
                   onClick={e => { e.preventDefault(); setShowConfetti(true); }}
@@ -775,5 +784,5 @@ export default function Home() {
         </div>
       </footer>
     </main>
-  )
+  );
 }

@@ -1,69 +1,69 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Zap, Mail, Lock, ArrowRight, Sparkles, Eye, EyeOff, AlertCircle, Shield, Rocket, Star, Users, Bot, Check, Infinity, Timer, Globe } from 'lucide-react'
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Zap, Mail, Lock, ArrowRight, Sparkles, Eye, EyeOff, AlertCircle, Shield, Rocket, Star, Users, Bot, Check, Infinity, Timer, Globe } from "lucide-react";
 
 export default function LoginPage() {
-  const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-      })
+      });
 
-      const data = await res.json()
+      const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error || 'Login failed')
-        return
+        setError(data.error || "Login failed");
+        return;
       }
 
       // Store token
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('user', JSON.stringify(data.user))
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       // Redirect to projects
-      router.push('/dashboard')
+      router.push("/dashboard");
     } catch (err) {
-      setError('An error occurred. Please try again.')
+      setError("An error occurred. Please try again.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-[#030308] flex">
       {/* Epic Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-20%] right-[-10%] w-[700px] h-[700px] bg-violet-600/25 rounded-full blur-[150px] animate-pulse" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-500/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/3 left-1/2 w-[500px] h-[500px] bg-fuchsia-500/15 rounded-full blur-[130px] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-500/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/3 left-1/2 w-[500px] h-[500px] bg-fuchsia-500/15 rounded-full blur-[130px] animate-pulse" style={{ animationDelay: "2s" }} />
         
         {/* Grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#030308_70%)]" />
         
         {/* Floating particles */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-violet-400/50 rounded-full animate-bounce" style={{ animationDuration: '3s' }} />
-        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-cyan-400/50 rounded-full animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
-        <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-fuchsia-400/50 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-violet-400/50 rounded-full animate-bounce" style={{ animationDuration: "3s" }} />
+        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-cyan-400/50 rounded-full animate-bounce" style={{ animationDuration: "2.5s", animationDelay: "0.5s" }} />
+        <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-fuchsia-400/50 rounded-full animate-bounce" style={{ animationDuration: "4s", animationDelay: "1s" }} />
       </div>
       
       {/* Left Panel - MultiGen Branding */}
@@ -103,9 +103,9 @@ export default function LoginPage() {
           {/* Feature cards */}
           <div className="space-y-4">
             {[
-              { icon: Infinity, title: 'Unlimited Alts', desc: 'Generate unlimited Roblox accounts', color: 'from-violet-500 to-purple-500' },
-              { icon: Timer, title: 'Instant Generation', desc: 'Create accounts in seconds (Robux for paid plans only)', color: 'from-cyan-500 to-blue-500' },
-              { icon: Shield, title: 'Undetectable', desc: 'Bypass detection with advanced methods', color: 'from-fuchsia-500 to-pink-500' },
+              { icon: Infinity, title: "Unlimited Alts", desc: "Generate unlimited Roblox accounts", color: "from-violet-500 to-purple-500" },
+              { icon: Timer, title: "Instant Generation", desc: "Create accounts in seconds (Robux for paid plans only)", color: "from-cyan-500 to-blue-500" },
+              { icon: Shield, title: "Undetectable", desc: "Bypass detection with advanced methods", color: "from-fuchsia-500 to-pink-500" },
             ].map((feature, i) => (
               <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-300 group cursor-default">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
@@ -187,7 +187,7 @@ export default function LoginPage() {
                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30 group-focus-within:text-violet-400 transition-colors" />
                     <Input
                       id="password"
-                      type={showPassword ? 'text' : 'password'}
+                      type={showPassword ? "text" : "password"}
                       placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -254,5 +254,5 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,0 +1,113 @@
+// AccGen - Account Generator Prisma Schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  passwordHash      String
+  name              String?
+  tokensRemaining   Int       @default(1000000)
+  subscriptionTier  String    @default("free")  // free, pro, enterprise
+  totalGenerated    Int       @default(0)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  generatedAccounts GeneratedAccount[]
+  sessions          Session[]
+  apiKeys           ApiKey[]
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+}
+
+model ApiKey {
+  id        String   @id @default(uuid())
+  userId    String
+  name      String
+  key       String   @unique
+  lastUsed  DateTime?
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+}
+
+model Platform {
+  id          String   @id @default(uuid())
+  name        String   @unique  // e.g., "spotify", "netflix", "discord"
+  displayName String             // e.g., "Spotify", "Netflix", "Discord"
+  icon        String?            // Icon URL or identifier
+  category    String             // streaming, gaming, social, email, etc.
+  isActive    Boolean  @default(true)
+  config      Json?              // Platform-specific configuration
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  generatedAccounts GeneratedAccount[]
+  
+  @@index([category])
+}
+
+model GeneratedAccount {
+  id           String   @id @default(uuid())
+  userId       String
+  platformId   String
+  email        String
+  password     String
+  username     String?
+  status       String   @default("active")  // active, expired, banned
+  metadata     Json?    // Additional account data
+  expiresAt    DateTime?
+  createdAt    DateTime @default(now())
+  
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  platform     Platform @relation(fields: [platformId], references: [id])
+  
+  @@index([userId])
+  @@index([platformId])
+  @@index([status])
+}
+
+model GenerationLog {
+  id          String   @id @default(uuid())
+  userId      String
+  platformId  String
+  quantity    Int
+  success     Int
+  failed      Int
+  duration    Int      // milliseconds
+  createdAt   DateTime @default(now())
+  
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model ProxyPool {
+  id        String   @id @default(uuid())
+  address   String
+  port      Int
+  protocol  String   // http, https, socks4, socks5
+  country   String?
+  isActive  Boolean  @default(true)
+  lastCheck DateTime?
+  failCount Int      @default(0)
+  createdAt DateTime @default(now())
+  
+  @@unique([address, port])
+}

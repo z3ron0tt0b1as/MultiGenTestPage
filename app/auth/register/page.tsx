@@ -60,7 +60,17 @@ export default function RegisterPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error || "Registration failed");
+        // Custom DB error message
+        if (
+          data.error === "Internal server error" ||
+          (typeof data.error === "string" && data.error.toLowerCase().includes("database"))
+        ) {
+          setError(
+            "Registration may be disabled. This may be due to a Database Connection Issue. Please contact our Support Team."
+          );
+        } else {
+          setError(data.error || "Registration failed");
+        }
         return;
       }
 

@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Register | MultiGen - Roblox Alt Generator",
+  description: "Create a free MultiGen account and start generating unlimited Roblox alts instantly. No payment required!",
+};
 "use client";
 
 import { useState } from "react";
@@ -66,6 +70,7 @@ export default function RegisterPage() {
           401: "Unauthorized. Please check your credentials or verify your email.",
           403: "Registration is currently disabled. Please contact our Support Team.",
           408: "Request timed out. Please try again.",
+          409: "An account with that email already exists.",
           502: "Bad gateway. Please try again later.",
           503: "Service unavailable. Please try again later.",
           504: "Server timeout. Please try again later.",

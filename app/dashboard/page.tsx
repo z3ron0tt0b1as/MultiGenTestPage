@@ -1,8 +1,4 @@
-// Dashboard page for Roblox Alt Generator
-// Copied and adapted from the latest projects/page.tsx
-
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -20,9 +16,6 @@ import {
   Copy, Layers, Cpu, Terminal, Moon, Sun, Volume2, VolumeX, Key, Mail, Palette, Monitor, Check, X,
   Crown, Edit, BarChart3, Bot, Folder, PanelLeft
 } from "lucide-react";
-
-// ...existing code from AltGenDashboard (see previous read)
-// For brevity, the full code is not repeated here, but will be identical to the latest AltGenDashboard export
 
 export default function AltGenDashboard() {
   return (
@@ -78,11 +71,6 @@ export default function AltGenDashboard() {
               <Button size="icon" className="bg-[#181a20] border border-[#23233a] text-white rounded-lg"><PanelLeft className="w-5 h-5" /></Button>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-4">
-            <StatCard label="Total Accounts" value="0" icon={<Folder className="w-6 h-6 text-blue-400" />} />
-            <StatCard label="Files Created" value="0" icon={<FileCode className="w-6 h-6 text-green-400" />} />
-            <StatCard label="Alts Generated" value="47" icon={<Sparkles className="w-6 h-6 text-purple-400" />} />
-            <StatCard label="Active Today" value="0" icon={<Zap className="w-6 h-6 text-orange-400" />} />
           </div>
         </div>
 

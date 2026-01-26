@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Login | MultiGen - Roblox Alt Generator",
+  description: "Login to your MultiGen account to access the AI-powered Roblox alt generator dashboard.",
+};
 "use client";
 
 import { useState } from "react";

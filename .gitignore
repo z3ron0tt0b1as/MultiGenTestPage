@@ -19,6 +19,9 @@
 .DS_Store
 *.pem
 
+# Ignore large zip archive
+MultiGenTestPage-master.zip
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -39,3 +42,6 @@ next-env.d.ts
 
 # prisma
 prisma/migrations/
+
+# Sentry Config File
+.env.sentry-build-plugin

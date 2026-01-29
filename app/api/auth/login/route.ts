@@ -55,8 +55,9 @@ export async function POST(request: Request) {
     }
   }
 
-  // --- Anti-abuse: Honeypot field ---
+  // --- Parse body once ---
   const body = await request.json().catch(() => null);
+  // --- Anti-abuse: Honeypot field ---
   if (body && typeof body.website === "string" && body.website.length > 0) {
     return NextResponse.json({ error: "Bot detected" }, { status: 400 });
   }
@@ -69,7 +70,7 @@ export async function POST(request: Request) {
     );
   }
   try {
-    const { email, password } = await request.json();
+    const { email, password } = body || {};
 
     // Validate input
     if (!email || !password) {
@@ -104,7 +105,8 @@ export async function POST(request: Request) {
     // Create token
     const token = await createToken({ userId: user.id, email: user.email });
 
-    return NextResponse.json({
+    // Set httpOnly cookie
+    const response = NextResponse.json({
       user: {
         id: user.id,
         email: user.email,
@@ -113,6 +115,14 @@ export async function POST(request: Request) {
       },
       token,
     });
+    response.cookies.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+    });
+    return response;
   } catch (error) {
     console.error("Login error:", error);
     return NextResponse.json(

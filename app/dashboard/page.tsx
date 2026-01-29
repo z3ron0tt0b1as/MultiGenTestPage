@@ -1,6 +1,5 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
+import { getUserFromCookie } from "@/lib/user-session";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -17,7 +16,11 @@ import {
   Crown, Edit, BarChart3, Bot, Folder, PanelLeft
 } from "lucide-react";
 
-export default function AltGenDashboard() {
+export default async function AltGenDashboard() {
+  const user = await getUserFromCookie();
+  if (!user) {
+    redirect("/auth/login");
+  }
   return (
     <div className="min-h-screen bg-[#0a0a12] text-white">
       {/* Top Navigation Bar */}
@@ -70,7 +73,6 @@ export default function AltGenDashboard() {
               <Button size="icon" className="bg-[#181a20] border border-[#23233a] text-white rounded-lg"><Layers className="w-5 h-5" /></Button>
               <Button size="icon" className="bg-[#181a20] border border-[#23233a] text-white rounded-lg"><PanelLeft className="w-5 h-5" /></Button>
             </div>
-          </div>
           </div>
         </div>
 

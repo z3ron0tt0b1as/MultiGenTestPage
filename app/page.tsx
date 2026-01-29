@@ -16,6 +16,16 @@ export default function Home() {
   const [showModal, setShowModal] = React.useState(false);
   const [spunIndex, setSpunIndex] = React.useState<number|null>(null);
 
+  // Auth state for navbar button
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  React.useEffect(() => {
+    // Check for token in localStorage (client-side only)
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);
+    }
+  }, []);
+
   // Konami code: up up down down left right left right b a
   React.useEffect(() => {
     const sequence = [38,38,40,40,37,39,37,39,66,65];
@@ -88,22 +98,32 @@ export default function Home() {
           </div>
           
           <div className="flex items-center gap-3">
-            <Link href="/auth/login">
-              <Button variant="ghost" className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 rounded-full">
-                Sign In
-              </Button>
-            </Link>
-            <Link href="/auth/register">
-              <Button className="bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 text-white hover:opacity-90 font-semibold rounded-full px-6 transition-all duration-300 hover:scale-105 shadow-lg shadow-violet-500/25">
-                Get Started
-              </Button>
-            </Link>
+            {isLoggedIn ? (
+              <Link href="/dashboard">
+                <Button className="bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 text-white hover:opacity-90 font-semibold rounded-full px-6 transition-all duration-300 hover:scale-105 shadow-lg shadow-violet-500/25">
+                  Dashboard
+                </Button>
+              </Link>
+            ) : (
+              <>
+                <Link href="/auth/login">
+                  <Button variant="ghost" className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 rounded-full">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link href="/auth/register">
+                  <Button className="bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 text-white hover:opacity-90 font-semibold rounded-full px-6 transition-all duration-300 hover:scale-105 shadow-lg shadow-violet-500/25">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-20 pb-32 sm:pt-28 sm:pb-40">
+      <section className="relative z-10 pt-24 pb-40 sm:pt-32 sm:pb-48">
         {/* Floating elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-32 left-[10%] w-2 h-2 bg-violet-400 rounded-full animate-ping" style={{ animationDuration: "3s" }} />
@@ -147,37 +167,39 @@ export default function Home() {
             
             {/* Main Heading */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-8 leading-[1.05]">
-              <span className="text-white">Free & Paid </span>
+              <span className="text-white">The Ultimate </span>
               <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">Roblox Alt Account</span>
               <br />
-              <span className="text-white">Generator </span>
-              <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Instantly</span>
+              <span className="text-white">Generator & Platform</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent"> Fast, Secure, Limitless</span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-              The free & paid Roblox alt account generator. Create unlimited accounts with premium features and exclusive items.<br />
-              <span className="text-white/70">Safe, fast, and completely undetectable.</span><br />
-              <span className="text-white/60">No phone/email required. Works worldwide. Trusted by creators, developers, and gamers.</span>
+            <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+              MultiGen is the all-in-one solution for Roblox creators, gamers, and developers. Instantly generate free or premium alt accounts, customize avatars, and unlock exclusive features. <span className="text-white/80 font-semibold">No phone or email required. Global access. 100% safe & undetectable.</span>
             </p>
 
             {/* Trust indicators */}
-            <div className="flex items-center justify-center gap-6 mb-10">
-                          <div className="flex items-center gap-2 text-sm text-white/40">
-                            <Cpu className="w-4 h-4 text-cyan-400" />
-                            <span>AI-Powered Generation</span>
-                          </div>
-              <div className="flex items-center gap-2 text-sm text-white/40">
-                <Shield className="w-4 h-4 text-emerald-400" />
-                <span>100% Safe</span>
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
+              <div className="flex items-center gap-2 text-sm text-white/50">
+                <Cpu className="w-4 h-4 text-cyan-400" />
+                <span>AI-Powered Generation</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-white/40">
+              <div className="flex items-center gap-2 text-sm text-white/50">
+                <Shield className="w-4 h-4 text-emerald-400" />
+                <span>100% Safe & Private</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white/50">
                 <Zap className="w-4 h-4 text-yellow-400" />
                 <span>Instant Delivery</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-white/40">
+              <div className="flex items-center gap-2 text-sm text-white/50">
                 <Eye className="w-4 h-4 text-violet-400" />
-                <span>Undetectable</span>
+                <span>Undetectable & Secure</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white/50">
+                <TrendingUp className="w-4 h-4 text-pink-400" />
+                <span>2.4M+ Accounts Generated</span>
               </div>
             </div>
             
@@ -223,9 +245,211 @@ export default function Home() {
           </div>
         </div>
       </section>
+            {/* Press & Media Section */}
+            <section id="press" className="relative z-10 py-32 bg-gradient-to-b from-black/80 via-black/60 to-black/90">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+                    In the <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Press</span>
+                  </h2>
+                  <p className="text-lg text-white/50 max-w-xl mx-auto">
+                    See what the media is saying about MultiGen.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-10">
+                  <a href="#" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+                    <img src="/press-forbes.svg" alt="Forbes" className="h-8" />
+                    Forbes
+                  </a>
+                  <a href="#" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+                    <img src="/press-techcrunch.svg" alt="TechCrunch" className="h-8" />
+                    TechCrunch
+                  </a>
+                  <a href="#" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+                    <img src="/press-verge.svg" alt="The Verge" className="h-8" />
+                    The Verge
+                  </a>
+                  <a href="#" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+                    <img src="/press-mashable.svg" alt="Mashable" className="h-8" />
+                    Mashable
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            {/* Changelog Section */}
+            <section id="changelog" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+                    Product <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Changelog</span>
+                  </h2>
+                  <p className="text-lg text-white/50 max-w-xl mx-auto">
+                    Stay up to date with the latest features and improvements.
+                  </p>
+                </div>
+                <div className="space-y-8 max-w-3xl mx-auto">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+                    <h3 className="text-xl font-bold text-white mb-2">v2.1.0 <span className="text-xs text-white/40 ml-2">Jan 2026</span></h3>
+                    <ul className="list-disc list-inside text-white/60 text-base pl-4">
+                      <li>Added Roadmap, Partners, and Community sections</li>
+                      <li>Improved homepage performance</li>
+                      <li>Minor bug fixes</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+                    <h3 className="text-xl font-bold text-white mb-2">v2.0.0 <span className="text-xs text-white/40 ml-2">Dec 2025</span></h3>
+                    <ul className="list-disc list-inside text-white/60 text-base pl-4">
+                      <li>Launched new pricing plans</li>
+                      <li>Added user reviews and testimonials</li>
+                      <li>Major UI redesign</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Download App Section */}
+            <section id="download" className="relative z-10 py-32 bg-gradient-to-b from-black/80 via-black/60 to-black/90">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+                    Download the <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">App</span>
+                  </h2>
+                  <p className="text-lg text-white/50 max-w-xl mx-auto">
+                    Get MultiGen on your device for the best experience.
+                  </p>
+                </div>
+                <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+                  <a href="#" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+                    <Download className="w-8 h-8" />
+                    Download for Windows
+                  </a>
+                  <a href="#" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+                    <Download className="w-8 h-8" />
+                    Download for Mac
+                  </a>
+                  <a href="#" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-gradient-to-r from-black to-gray-800 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+                    <Download className="w-8 h-8" />
+                    Download for Linux
+                  </a>
+                </div>
+              </div>
+            </section>
+      {/* Partners Section */}
+      <section id="partners" className="relative z-10 py-32 bg-gradient-to-b from-black/80 via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              Our <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Partners</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              Trusted by leading platforms and communities.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-10">
+            {/* Example partner logos (replace src with real logos) */}
+            <img src="/partner-roblox.svg" alt="Roblox" className="h-12 opacity-80 grayscale hover:grayscale-0 transition-all" />
+            <img src="/partner-discord.svg" alt="Discord" className="h-12 opacity-80 grayscale hover:grayscale-0 transition-all" />
+            <img src="/partner-github.svg" alt="GitHub" className="h-12 opacity-80 grayscale hover:grayscale-0 transition-all" />
+            <img src="/partner-vercel.svg" alt="Vercel" className="h-12 opacity-80 grayscale hover:grayscale-0 transition-all" />
+            <img src="/partner-google.svg" alt="Google" className="h-12 opacity-80 grayscale hover:grayscale-0 transition-all" />
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <section id="roadmap" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              Product <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Roadmap</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              See what’s coming next for MultiGen.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-2">Mobile App</h3>
+              <p className="text-white/60 text-base mb-2">Generate and manage accounts on the go.</p>
+              <span className="inline-block px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-semibold">Q2 2026</span>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-2">API for Developers</h3>
+              <p className="text-white/60 text-base mb-2">Programmatic access for automation and integrations.</p>
+              <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-semibold">Q3 2026</span>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+              <h3 className="text-xl font-bold text-white mb-2">Marketplace</h3>
+              <p className="text-white/60 text-base mb-2">Buy, sell, and trade exclusive accounts and items.</p>
+              <span className="inline-block px-3 py-1 rounded-full bg-fuchsia-500/20 text-fuchsia-400 text-xs font-semibold">Q4 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security & Compliance Section */}
+      <section id="security" className="relative z-10 py-32 bg-gradient-to-b from-black/80 via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              Security & <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Compliance</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              Your safety is our top priority. We follow industry best practices to keep your data secure.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl text-center">
+              <Shield className="w-10 h-10 mx-auto text-emerald-400 mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">End-to-End Encryption</h3>
+              <p className="text-white/60 text-base">All data is encrypted in transit and at rest.</p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl text-center">
+              <Lock className="w-10 h-10 mx-auto text-fuchsia-400 mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Privacy First</h3>
+              <p className="text-white/60 text-base">We never sell or share your personal information.</p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl text-center">
+              <Check className="w-10 h-10 mx-auto text-cyan-400 mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Compliance</h3>
+              <p className="text-white/60 text-base">Fully compliant with GDPR, CCPA, and other major regulations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section */}
+      <section id="community" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-black/90">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              Join Our <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Community</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              Connect with other users, share tips, and get support.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+            <a href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+              <Bot className="w-8 h-8" />
+              Join Discord
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+              <Smile className="w-8 h-8" />
+              Follow on Twitter
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 px-8 py-6 rounded-2xl bg-gradient-to-r from-black to-gray-800 text-white font-bold text-xl shadow-lg hover:scale-105 transition-all">
+              <Code className="w-8 h-8" />
+              Star on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
-      <section id="generator" className="relative z-10 py-32 bg-gradient-to-b from-[#0a0a0a]/80 via-black/60 to-black/90">
+      <section id="generator" className="relative z-10 py-36 bg-gradient-to-b from-[#0a0a0a]/80 via-black/60 to-black/90">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-violet-500/20 via-fuchsia-500/20 to-cyan-500/20 border border-white/10 mb-8">
@@ -233,10 +457,10 @@ export default function Home() {
               <span className="text-base text-violet-200 font-semibold tracking-wide">Why MultiGen?</span>
             </div>
             <h2 className="text-5xl font-black text-white mb-6 tracking-tight">
-              Everything You <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Need</span>
+              Everything You <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Need</span> & More
             </h2>
-            <p className="text-xl text-white/50 max-w-2xl mx-auto">
-              All the features you expect from a world-class alt generator, plus more.
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+              MultiGen offers a robust suite of features for every Roblox user. From customizable avatars to instant delivery, discover why we’re the #1 choice for alt account generation.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -244,44 +468,44 @@ export default function Home() {
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center hover:scale-105 hover:shadow-2xl transition-all duration-300">
               <Layers className="w-12 h-12 text-cyan-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Customizable Avatars</h3>
-              <p className="text-white/60 text-base">Choose from a variety of avatar styles and accessories for every generated account.</p>
+              <p className="text-white/70 text-base">Personalize every account with unique styles, accessories, and exclusive items.</p>
             </div>
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center hover:scale-105 hover:shadow-2xl transition-all duration-300">
               <Crown className="w-12 h-12 text-amber-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Premium Status</h3>
-              <p className="text-white/60 text-base">All generated accounts come with Roblox Premium subscription active.</p>
+              <p className="text-white/70 text-base">Enjoy Roblox Premium on every generated account—no extra steps required.</p>
             </div>
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center hover:scale-105 hover:shadow-2xl transition-all duration-300">
               <Gift className="w-12 h-12 text-pink-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Robux (Paid Plans)</h3>
-              <p className="text-white/60 text-base">Robux is only included with paid plans. Amount may vary per account.</p>
+              <p className="text-white/70 text-base">Get Robux with every paid account. Perfect for creators, traders, and gamers.</p>
             </div>
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center hover:scale-105 hover:shadow-2xl transition-all duration-300">
               <Shield className="w-12 h-12 text-emerald-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Undetectable</h3>
-              <p className="text-white/60 text-base">Advanced generation methods that avoid detection systems.</p>
+              <p className="text-white/70 text-base">Advanced stealth tech keeps your accounts safe from bans and detection.</p>
             </div>
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center hover:scale-105 hover:shadow-2xl transition-all duration-300">
               <Zap className="w-12 h-12 text-cyan-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Instant Delivery</h3>
-              <p className="text-white/60 text-base">Accounts are generated and delivered in under 5 seconds.</p>
+              <p className="text-white/70 text-base">Receive your new account credentials in seconds—no waiting, ever.</p>
             </div>
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center hover:scale-105 hover:shadow-2xl transition-all duration-300">
               <Infinity className="w-12 h-12 text-violet-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Unlimited Accounts</h3>
-              <p className="text-white/60 text-base">No limits on how many accounts you can generate.</p>
+              <p className="text-white/70 text-base">Generate as many accounts as you need, whenever you need them.</p>
             </div>
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center hover:scale-105 hover:shadow-2xl transition-all duration-300">
               <Lock className="w-12 h-12 text-fuchsia-400 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Secure & Private</h3>
-              <p className="text-white/60 text-base">Your data is encrypted and never shared with third parties.</p>
+              <p className="text-white/70 text-base">Your privacy is our priority. All data is encrypted and never shared.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="relative z-10 py-16">
+      <section className="relative z-10 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="relative rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.03] to-transparent p-8 backdrop-blur-sm">
             <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-transparent to-cyan-500/5 rounded-3xl" />

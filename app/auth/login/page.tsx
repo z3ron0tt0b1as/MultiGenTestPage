@@ -1,10 +1,11 @@
-export const metadata = {
-  title: "Login | MultiGen - Roblox Alt Generator",
-  description: "Login to your MultiGen account to access the AI-powered Roblox alt generator dashboard.",
-};
-"use client";
 
-import { useState } from "react";
+"use client";
+// export const metadata = {
+//   title: "Login | MultiGen - Roblox Alt Generator",
+//   description: "Login to your MultiGen account to access the AI-powered Roblox alt generator dashboard.",
+// };
+
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,14 @@ import { Zap, Mail, Lock, ArrowRight, Sparkles, Eye, EyeOff, AlertCircle, Shield
 
 export default function LoginPage() {
   const router = useRouter();
+  useEffect(() => {
+    // If token cookie exists, redirect to dashboard
+    if (typeof window !== "undefined") {
+      if (document.cookie.split(';').some((item) => item.trim().startsWith('token='))) {
+        router.replace("/dashboard");
+      }
+    }
+  }, [router]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

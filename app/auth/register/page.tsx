@@ -1,10 +1,11 @@
-export const metadata = {
-  title: "Register | MultiGen - Roblox Alt Generator",
-  description: "Create a free MultiGen account and start generating unlimited Roblox alts instantly. No payment required!",
-};
-"use client";
 
-import { useState } from "react";
+"use client";
+// export const metadata = {
+//   title: "Register | MultiGen - Roblox Alt Generator",
+//   description: "Create a free MultiGen account and start generating unlimited Roblox alts instantly. No payment required!",
+// };
+
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,14 @@ import { Timer } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
+  useEffect(() => {
+    // If token cookie exists, redirect to dashboard
+    if (typeof window !== "undefined") {
+      if (document.cookie.split(';').some((item) => item.trim().startsWith('token='))) {
+        router.replace("/dashboard");
+      }
+    }
+  }, [router]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
